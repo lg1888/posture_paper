@@ -1,0 +1,117 @@
+\section*{Response to Reviewers}
+
+\subsection*{Reviewer 1}
+
+\begin{enumerate}
+    \item \textbf{Sections 2.2 and 2.3 are redundant and confusing because they address the same topics and even repeat previous works and explanations about referenced papers.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The revised paper consolidates all prior work into a single Literature Review section, eliminating the redundant 2.2/2.3 split entirely. Works that were repeated across both subsections now appear once with a clear explanation of their relevance to the proposed system.
+
+    \item \textbf{In Section 2.4, the contributions of the work are mentioned again. This should appear in the introduction, where they are already stated.}
+
+    \textbf{Response:} We thank the reviewer for this comment. All contributions have been moved exclusively to the Introduction as a 4-point numbered list. The standalone Research Gap subsection (Section 2.4) has been removed from the revised paper.
+
+    \item \textbf{I would explain in detail the use of the `backbone, neck, and head' metaphor, which is typical of YOLO, in a posture-detection paper. In fact, I would use different concepts.}
+
+    \textbf{Response:} We thank the reviewer for this comment. A paragraph has been added to Section 3.1 explicitly clarifying that backbone, neck, and head refer to standard stages of the YOLOv8 detection network architecture --- not anatomical regions of the worker. The backbone extracts image features, the neck fuses multi-scale features, and the head produces bounding boxes and keypoints. Citations are provided for each component.
+
+    \item \textbf{Some concepts require references; please add citations to clarify terms such as C2f, SPPF block, FPN, PAN, and Molmo.}
+
+    \textbf{Response:} We thank the reviewer for this comment. Individual citations have been added in Section 3.1: Wang et al.\ (CSPNet) for C2f blocks, He et al.\ for the SPPF module, Lin et al.\ for FPN, and Liu et al.\ for PAN. Molmo was already cited in Section 4.5 of the original submission.
+
+    \item \textbf{I would not describe a convex interpolation as novel. Also, if the smoothing factor is 0.5, aren't the authors simply averaging?}
+
+    \textbf{Response:} We thank the reviewer for this comment. The word ``novel'' has been removed from the description of the smoothing technique. A sentence has been added explicitly acknowledging that with $\alpha = 0.5$, the formula reduces to a simple arithmetic mean of the previous and current frame coordinates, giving equal weight to both. This value was selected empirically as the best balance between responsiveness and stability for the construction-site videos used in this study.
+
+    \item \textbf{Equation 5 is not sufficiently clear. I would use the word `and' instead of a symbol.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The bending frequency formula has been updated to use the word ``and'' inside the indicator function expression instead of a logical symbol, improving clarity.
+
+    \item \textbf{Figure 4 is not clear; it is not evident why landmark smoothing prevents the depicted errors. It seems that a landmark is detected in image coordinates (0,0). Why does the value (0,0) in the image belong to the detection?}
+
+    \textbf{Response:}
+
+    \item \textbf{How is the case handled when a person moves out of the frame? This should be added as a limitation, given that the concept of the duration of a particular posture is important in the paper.}
+
+    \textbf{Response:} We thank the reviewer for this comment. This is now described in Section 3.3: when a worker leaves the field of view, the current activity segment is closed at the last valid frame, and any reappearance is treated as a new tracking segment. The resulting gap in duration tracking is acknowledged as a limitation of the current single-camera approach.
+
+    \item \textbf{A graphical abstract could help convey the overall structure and understanding of the paper.}
+
+    \textbf{Response}
+\end{enumerate}
+
+\subsection*{Reviewer 2}
+
+\begin{enumerate}
+    \item \textbf{Section 3.2 states that `this method can be used to compute the full REBA assessment,' yet the experiments only utilize the trunk score. The authors should clearly distinguish that their risk quantification metric is a composite index derived from the REBA trunk scoring rules, not the standard REBA total score. Referring to it simply as a `REBA score' should be avoided.}
+
+    \textbf{Response:} We thank the reviewer for this comment. Section 3.4 now implements full-body automated REBA scoring covering all body segments trunk, neck, legs, upper arms, lower arms, and wrist --- via the standard REBA Table A, Table B, and Table C lookup procedure. The trunk-only limitation no longer applies to the revised system. The computed score is now clearly described as a full REBA score with all segment contributions.
+
+    \item \textbf{Focusing on trunk flexion simplifies the problem. REBA is inherently a whole-body assessment tool; by ignoring neck, arm, and leg postures, as well as load handling and torso twisting, the method risks overlooking other critical ergonomic hazards.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The automated REBA module in Section 3.4 now explicitly models all body segments and computes a full per-frame REBA score. Joint angles for the trunk, neck, upper arms, lower arms, and knee flexion are all derived from the smoothed 2D keypoints and scored according to the standard REBA thresholds. Load and coupling modifiers are set to neutral defaults, as these factors are not directly observable from image-based pose alone, which is acknowledged as a limitation.
+
+    \item \textbf{There is no description of how REBA scores are actually computed from keypoints. How are the joint angles derived? What are the scoring thresholds? There is a lack of detailed information on the components of RAG, including the retrieval content and experiments.}
+
+    \textbf{Response:} We thank the reviewer for this comment. A detailed methodology paragraph has been added to Section 3.4 describing: (1) the dot-product angle formula applied to pairs of smoothed 2D keypoint vectors; (2) the six body-segment angle definitions with their specific keypoint pairs (e.g., trunk: hip-midpoint to shoulder-midpoint vector against vertical); (3) all REBA segment scoring thresholds (trunk score 1 for $<5^\circ$, 2 for $5^\circ$--$20^\circ$, 3 for $20^\circ$--$60^\circ$, 4 for $>60^\circ$; neck score 1 for $\leq20^\circ$, 2 for $>20^\circ$; upper arm score 1--4 per $<20^\circ/20^\circ$--$45^\circ/45^\circ$--$90^\circ/>90^\circ$); and (4) the Table A to Score A, Table B to Score B, Table C to final REBA lookup procedure. The RAG implementation is fully specified in Section 3.5: ChromaDB vector database, all-MiniLM-L6-v2 embeddings, gpt-4-turbo language model, and Streamlit interface.
+
+    \item \textbf{Figures 5 primarily showcase qualitative visual outputs. They do not examine failure scenarios such as performance under occlusion or multi-person overlaps.}
+
+    \textbf{Response:}
+
+    \item \textbf{Existing literature typically employs 3D joint angles for REBA-based ergonomic assessments. The current work computes trunk angles solely from 2D projections. Using 2D angles may introduce significant inaccuracies, especially when the worker's torso is rotated relative to the camera plane.}
+
+    \textbf{Response:}
+
+    \item \textbf{Although this paper presents the architecture of the VLM-RAG process, it does not evaluate the quality of the generated recommendations. There is a lack of detailed information on the components of RAG. Has the effectiveness of the generated content been systematically assessed by domain experts? The lack of empirical validation is a significant flaw.}
+
+    \textbf{Response:}
+
+    \item \textbf{The experimental section omits direct quantitative comparisons with existing approaches. How does the proposed YOLOv8 + smoothing method compare against systems using OpenPose or VideoPose3D? Methods like Poserac, which also quantify frequency and duration of repetitive actions, are not benchmarked against.}
+
+    \textbf{Response:}
+\end{enumerate}
+
+\subsection*{Reviewer 3}
+
+\begin{enumerate}
+    \item \textbf{In lines 86--95 the authors describe a variety of computer vision approaches to posture evaluation. Then, in Section 2.3, many of these works are discussed again along with some new ones. First, this is redundant. Several works are simply repeated with a slightly different summary.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The revised paper consolidates all computer vision literature into a single unified Literature Review section. Works that were previously described twice across Sections 2.2 and 2.3 now appear once, and the section is restructured so that each cited work is presented in the context of how it relates to the proposed approach.
+
+    \item \textbf{There is almost no discussion of how these works relate to this manuscript. The section reads like a list of papers with summaries. Some explanation is needed of what is new here.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The Introduction contribution list and the new qualitative comparison table in Section 5 explicitly contextualise how the proposed system differs from prior work. Specifically, the combination of temporal bending-frequency tracking, full-body automated REBA scoring, and RAG-LLM feedback is not present in any of the cited prior methods, which are predominantly single-frame classifiers without temporal modelling or automated corrective guidance.
+
+    \item \textbf{There should be some explanation of why standard techniques for pose estimation in videos are not used (e.g., RTMPose, mmpose). These would be useful to future work at least.}
+
+    \textbf{Response:} We thank the reviewer for this comment. A model selection rationale paragraph has been added to Section 3.3. OpenPose, VideoPose3D, and RTMPose are named as alternatives, and three concrete reasons are given for choosing YOLOv8-pose: (1) it is a single-stage detector that jointly localises persons and estimates keypoints in one forward pass, enabling real-time edge deployment; (2) its pre-trained weights are validated for construction-site safety monitoring tasks; and (3) the yolov8n-pose variant runs at real-time frame rates on a standard laptop without a dedicated GPU. Integration of 3D lifting methods such as VideoPose3D is identified as a priority for future work.
+
+    \item \textbf{The citation for YOLO should include the original YOLO paper (Redmon et al.), not just a survey paper of YOLO architecture changes. The specific model used should be referenced for reproducibility.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The original Redmon et al.\ (2016) paper and the Terven et al.\ comprehensive review are now both cited in Section 3.2. The specific model is identified as yolov8n-pose throughout the methodology section.
+
+    \item \textbf{Lines 145--167 spend too much space re-explaining the YOLO architecture. The original YOLO paper has a straightforward description. There is simply no point in explaining the internals of YOLO since this work only processes the output of the model.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The verbose YOLO internal walkthrough has been replaced by a concise paragraph in Section 3.1 that defines the backbone, neck, and head terms and immediately directs the reader to Redmon et al.\ and Terven et al.\ for full architectural details. The revised section focuses on what is unique to this work rather than re-describing standard components.
+
+    \item \textbf{There is no description of the min\_confidence threshold shown in Figure 1. There is also no description of how person IDs are tracked across multiple frames, which is the key step of extending single-image pose detection to multi-image.}
+
+    \textbf{Response:} We thank the reviewer for this comment. Both are now described explicitly. The confidence threshold of 0.5 is explained in Section 3.2: keypoints whose detection confidence falls below this value are treated as undetected for that frame rather than being forwarded to downstream processing. Person re-identification across frames is described in Section 3.3 using a centroid-based tracker that matches each detected bounding box centroid to the nearest centroid from the previous frame within a fixed pixel distance threshold.
+
+    \item \textbf{The joint smoothing seems to be overcoming limitations in the un-described thresholding and person-identification steps, rather than smoothing jitter. All of the `bad' joint predictions are in the upper left corner at the (0,0) position. The smoothing is more about missing data interpolation than smoothing jitter. The corresponding figure should be updated.}
+
+    \textbf{Response:} We thank the reviewer for this comment. We agree with this observation. A sentence has been added to Section 3.2 acknowledging that when keypoint confidence falls below the threshold, the model outputs a coordinate of $(0,0)$ --- the image origin --- and that the smoothing function primarily serves as a missing-data interpolation mechanism rather than a jitter filter. The Figure 4 description in Section 4.2 has been updated to explicitly describe the $(0,0)$ artefact visible in the unsmoothed sequences and explain how smoothing suppresses it.
+
+    \item \textbf{In section 4.4, averaging the three main error metrics is strange and does not aid in interpreting the results. The percent errors in number of risky activities identified and duration of each posture type are not directly comparable. More standard metrics such as accuracy and precision are more appropriate.}
+
+    \textbf{Response:} We thank the reviewer for this comment. The averaged error formula has been replaced in Section 4.5 with a structured REBA score summary table computed directly from the per-frame output data across four task categories (drywall finishing, hand screeding, kneeling creepers, and laying concrete block), reporting mean REBA score, maximum REBA score, high-risk frame proportion, and mean bending proportion per task. Standard binary classification metrics (accuracy, precision, recall, F1) require manually annotated ground-truth frame labels, which are not yet available; computing these metrics from expert-annotated data is identified as a priority for future work.
+
+    \item \textbf{Minor error: many quotation marks are not paired correctly in LaTeX. Quotations should be written with backtick-backtick and two single quote characters, not standard double-quote characters.}
+
+    \textbf{Response:} We thank the reviewer for this comment. All quotation marks throughout the revised document have been corrected to use the proper LaTeX typographic convention.
+
+    \item \textbf{In section 3.3 I think more explanation of the RAG system is needed. Presumably the work used some off-the-shelf system to achieve this and it is important for reproducibility to know what it was.}
+
+    \textbf{Response:} We thank the reviewer for this comment. Section 3.5 now fully specifies all RAG implementation components: ChromaDB as the vector database, the all-MiniLM-L6-v2 model for sentence embeddings, gpt-4-turbo as the language model, and Streamlit as the user interface. The knowledge base contains 126 embedded text chunks derived from the NIOSH document \emph{Simple Solutions for Ergonomics in Construction}, and retrieval is performed using normalized cosine similarity with a relevance threshold.
+\end{enumerate}
