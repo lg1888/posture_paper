@@ -1,0 +1,1036 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx} % Required for inserting images
+% \usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{pdfcomment}
+
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{amsmath}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta, positioning}
+
+\usepackage[table,xcdraw]{xcolor} % Enable table colors and HTML color codes
+\usepackage{subcaption}
+% \usepackage[english]{babel}
+% \usepackage[utf8]{inputenc}
+% \usepackage{amsfonts}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{float} 
+\usepackage{geometry}
+\usepackage{lineno}
+\usepackage{authblk}
+\usepackage{tcolorbox}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{geometry} % Optional: for full page layout control
+%margin
+\geometry{
+    left=1in,
+    right=1in,
+    top=1in,
+    bottom=1in
+}
+
+\usepackage{lscape}
+\usepackage{siunitx}  % For aligning numbers on the decimal point
+\usepackage{adjustbox} % To adjust table width if needed
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepgfplotslibrary{groupplots}
+
+% Use natbib with sort&compress
+\usepackage[numbers,sort&compress]{natbib}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,       % 章节跳转链接（如目录、交叉引用）
+  citecolor=blue,       % 文献引用
+  urlcolor=blue         % 网页链接
+}
+
+\usepackage{cite}
+
+%font type and line spacing
+% \usepackage{mathpazo}
+\renewcommand{\baselinestretch}{1.5}
+
+% \renewcommand{\arraystretch}{0.5} % 数字 <1 压缩, >1 拉伸
+
+
+\usepackage{array}
+\usepackage{multirow}
+
+\usepackage{amssymb}
+\usepackage{pifont}
+
+
+\usepackage[colorinlistoftodos]{todonotes}
+
+% \usepackage{times}
+
+%chinese
+% \usepackage{xeCJK}
+
+\usepackage{wrapfig}
+
+%remove all paragraph indent
+% \usepackage{parskip}
+
+% Use BibTeX for bibliography management (uncomment this if author name is needed.
+% \usepackage[semicolon]{natbib}
+% \usepackage[numbers,sort]{natbib}
+\usepackage{cite}
+
+%margin
+\geometry{
+    left=1in,
+    right=1in,
+    top=1in,
+    bottom=1in
+}
+
+% \hypersetup{
+%     colorlinks=true, % Enable colored links
+%     linkcolor=black,  % Set the color of internal links (e.g., references)
+%     citecolor=blue, % Change this color as desired
+%     urlcolor=blue    % Set the color of external links (e.g., URLs)
+% }
+
+\usepackage{amsthm}
+\newtheorem{example}{Example}[section] % Define the example environment
+\newtheorem{homework}{Homework} % Define the example environment
+
+
+\renewcommand\Authfont{\normalsize} % 作者名正常大小+加粗
+\renewcommand\Affilfont{\small\normalfont}   % 单位小一号
+
+\usepackage{titlesec}
+\usepackage{titletoc}
+% Define \subsubsubsection
+\titleclass{\subsubsubsection}{straight}[\subsection]
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\titleformat{\subsubsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\setcounter{secnumdepth}{4} % Numbering depth
+\setcounter{tocdepth}{4} % Include subsubsubsections in the table of contents
+
+% % Set section headings to 10pt
+\titleformat*{\section}{\fontsize{11}{12}\selectfont\bfseries}
+\titleformat*{\subsection}{\fontsize{11}{12}\selectfont\bfseries}
+\titleformat*{\subsubsection}{\fontsize{11}{12}\selectfont\bfseries}
+\titleformat*{\paragraph}{\fontsize{11}{12}\selectfont\bfseries}
+\titleformat*{\subparagraph}{\fontsize{11}{12}\selectfont\bfseries}
+
+% Adjust the formatting in the table of contents
+\titlecontents{subsubsubsection}
+[8em] % adjust this value to fit your needs
+{\small}
+{\hyperlink{toc.\thecontentslabel}{\thecontentslabel.} }
+{}
+{\ \titlerule*[.5pc]{.}\contentspage}
+
+\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\usepackage{caption}
+% Make the label bold and keep the caption text regular
+\captionsetup{
+  labelfont=bf, % makes label (e.g., "Figure 1") bold
+  textfont=small % keeps caption text in normal font
+}
+
+
+% \usepackage{sectsty}
+% % Remove indentation after section headings
+% \sectionfont{\noindent}
+
+%remove hyphenation
+\usepackage{microtype}
+
+
+\usepackage{enumitem}
+% Set item separation globally
+\setlist{itemsep=0em}
+
+% % Adjust the space after figure captions
+% \setlength{\belowcaptionskip}{-15pt}
+
+\usepackage{fancyhdr} % For custom headers/footers
+\usepackage{lastpage} % For total number of pages
+
+\pagestyle{fancy}
+\fancyhf{} % Clear header/footer
+\fancyfoot[C]{\thepage\ of \pageref{LastPage}} % Page number as x out of total
+\renewcommand{\headrulewidth}{0pt} % Remove horizontal line from header
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\title{Ergonomic Risk Detection and Mitigation Using YOLOv8 with Vision-Language Models and Retrieval-Augmented Generation}
+
+% \author[1]{Sarayu Varma Gottimukkala}
+% \author[1]{Lu Gao, Ph.D. \thanks{lgao5@central.uh.edu}}
+% \author[1]{Zia Din, Ph.D.}
+% \author[1]{Kinam Kim, Ph.D.}
+% \author[2]{Jingran Sun, Ph.D.}
+% \affil[1]{Department of Civil and Environmental Engineering, University of Houston}
+% \affil[2]{Department of Civil and Environmental Engineering, University of South Florida}
+\author{}
+
+\date{}
+
+
+\begin{document}
+
+\linenumbers % 开启行号
+
+\maketitle    
+
+\begin{abstract}
+Work-related injuries remains a significant and ongoing concern in the construction industry. This research presents a computer-vision based approach for detecting and assessing ergonomic risks among construction workers. The system performs five key functions: (1) assessment of workers' postures; (2) identification of normal and risky physical activities; (3) measurement of activity duration; (4) quantification of high-risk movement frequency; (5) recommendations for risk mitigation using Large Language Models. To validate its performance, the system was tested on video datasets capturing various construction tasks such as drywall finishing, hand screeding, kneeling finishing, laying concrete blocks, and tying rebar. Results were benchmarked against expert annotated groud truth data, which demonstrated high accuracy in detecting ergonomic risks. Overall accuracy exceeded 90\% across multiple task categories, which confirms the reliability of the system in detecting both postures and activity transitions. The proposed approach allows construction managers to identify unsafe practices on-site.
+\end{abstract}
+
+
+\noindent \textbf{Keywords:} Ergonomic Risk, Construction Worker, Computer Vision, Vision Language Model, Retrieval-Augmented Generation
+
+% \end{abstract}
+%
+%
+%
+
+\newpage
+\section{Introduction}
+
+It is reported that the prevalence of work-related injuries among construction workers reached 34\% in the US in 2020 \citep{antwi2020construction}. These risks in construction arise from physical, environmental, and organizational factors. Physical demands such as heavy lifting, repetitive movements, prolonged static postures, and awkward positions increase injuries like low back pain and joint disorders \citep{singh2024construction}. Environmental conditions, including slippery surfaces, poor lighting, extreme temperatures, and disorganized worksites, force unsafe positions and raise physical strain \citep{ishwarya2021analysis}. Organizational issues such as insufficient training, lack of rest breaks, heavy workloads, and poor supervision further amplify risks by pushing workers beyond their physical limits \citep{mohan2018identifying}. Given the complex and multifactorial nature of ergonomic risks, efficient monitoring and real-time feedback systems are urgently needed.
+
+Computer vision methods are increasingly being used to automate ergonomic risk detection by analyzing workers' postures and movements through cameras and algorithms \citep{seo2021automated}. A typical workflow involves applying deep learning and computer vision models to identify key body parts, such as the head, knees, and shoulders, in images captured on construction sites. These identified points are used to construct a skeletal representation of the worker. From this skeletal structure, joint positions are determined, which allows for the calculation of joint angles. These joint angles are then used to assess ergonomic risk using established metrics such as the Ovako Working Posture Analysis System (OWAS) \citep{karhu1977correcting}, Rapid Upper Limb Assessment (RULA) \citep{mcatamney1993rula}, and Rapid Entire Body Assessment (REBA) \citep{hignett2000rapid}. These assessment tools classify specific worker postures into different levels of injury risk.
+
+However, current computer vision and posture estimation methods for ergonomic risk detection face several limitations in real-world construction environments. These include: (1) Predominant focus on posture, while often neglecting other critical ergonomic risk factors such as repetition and the duration of postures; (2) Lack of feedback or corrective measures based on the identified ergonomic risks. To address these issues, this research developed a ergonomic risk detection system to analyze construction workers’ postures and provide actionable feedback to help mitigate musculoskeletal disorders. The key contributions of this study are: (1) extracting workers' postures, along with the frequency and duration of associated ergonomic risks, from video footage captured on construction sites; and (2) utilizing a Large Language Model (LLM)-based retrieval-augmented generation (RAG) system to deliver tailored recommendations for reducing injury risk based on the video analytics results.
+
+The remainder of this paper is organized as follows: Section 2 presents a comprehensive literature review covering ergonomic risks in construction, existing assessment methods, and computer vision applications. Section 3 details the proposed methodology, including system architecture, pose estimation techniques, and risk detection algorithms. Section 4 describes the case study implementation and validation results across various construction tasks. Section 5 discuses the findings, limitations, and implications of the research. 
+
+
+\section{Literature Review}
+
+\subsection{Overview of ergonomic risk in construction tasks}
+Construction work is characterized by its physically demanding nature, which often requires workers to engage in repetitive tasks and awkward postures leading to work-related strain risk \citep{inyang2012ergonomic}. For example, \citet{massirisfernandez2020ergonomic} reported that musculoskeletal disorders account for more than 50\% of all occupational diseases in the European Union, while in the United States they represent over 30\% of non-fatal occupational injuries. Beyond these national statistics, prevalence studies show the extent of the problem among construction workers themselves. \citet{chen2024automatic} found that the prevalence of musculoskeletal disorders among construction workers reached 34\% in the US, 41\% in Hong Kong, 36\% in Ethiopia, and 76\% in Malaysia.
+
+To mitigate the risks associated with musculoskeletal disorders, several strategies have been suggested, including Ergonomic job design, implementing engineering controls, work practice controls, administrative controls, and early identification of risk factors. These strategies can involve manual observation, the use of wearable sensors, or vision-based tracking systems to monitor workers’ postures and movements and identify potential ergonomic hazards \citep{antwi2018wearable}.
+
+\subsection{Existing methods for ergonomic risk assessment}
+
+Ergonomic assessment methods are crucial for identifying and mitigating risks of musculoskeletal disorders in various industries \citep{tao2024evaluation}. These methods can be broadly categorized into three main groups: self-report methods, observation-based methods, and direct measurement methods. 
+
+Self-report methods involve gathering data through questionnaires, interviews, or worker diaries to capture workers’ perceptions of physical strain, discomfort, and related symptoms. These approaches do not directly measure ergonomic risk factors such as posture or load but instead provide indirect evidence by documenting musculoskeletal problems and perceived exertion. Common tools include the Nordic Musculoskeletal Questionnaire \citep{kuorinka1987standardised}, which records musculoskeletal symptoms, and the Borg Scale \citep{borg1982psychophysical}, which measures perceived exertion.
+
+Observation-based methods rely on systematic evaluation of workers’ postures and movements using standardized ergonomic tools such as OWAS, RULA, and REBA \citep{lamooki2022data}. Traditionally, these assessments were carried out through manual observation by trained experts, but such approaches are prone to subjectivity, human error, and variability in judgment \citep{zhang2017real}. Recent advances in computer vision have enabled the automation of posture recognition and ergonomic scoring, addressing many of these limitations. For example, \citet{massirisfernandez2020ergonomic} developed a vision-based system using OpenPose to automatically compute RULA scores, achieving performance comparable to expert assessments even under poor lighting, occlusions, and multi-worker conditions. Similarly, \citet{tao2023postural} applied the VideoPose3D model combined with a support vector machine classifier to assess lower-body postures from video input, reaching nearly 95\% accuracy and providing real-time visual feedback via a dashboard. In another study, \citet{li2024data} introduced a data-driven model with Heuristic Gaussian Cloud Transformation and fuzzy inference to analyze 3D pose estimations from RGB cameras, which significantly improved accuracy and sensitivity over conventional methods. These vision-based approaches reduce time and labor costs, enhance scalability, and provide consistent results across diverse work environments. 
+
+Direct measurement methods involve using sensors and instruments to collect objective data about workers' physical exposures. Techniques include motion capture systems, inertial measurement units, pressure insoles, and electromyography to measure joint angles, body movements, and muscle activity. For example, \citet{mudiyanselage2021automated} used surface electromyography sensors in combination with machine learning models to directly assess ergonomic risks. Similarly, \citet{zhao2018health} used wearable Inertial Measurement Units and a machine learning-based data-driven model for direct ergonomic risk assessment of musculoskeletal disorders in construction workers. These methods provide quantitative data continuously which offers high accuracy and detailed insights. However, they can be expensive, complex to implement, and may interfere with workers' activities \citep{li2024data}. 
+
+\subsection{Applications of computer vision for ergonomic assessment}
+
+Computer vision methods for ergonomic assessment have advanced from 2D image-based analysis to 3D pose estimation and automated risk prediction. Early approaches relied on 2D cameras with handcrafted features and traditional classifiers. For example, \citet{yan2017development} applied view-invariant feature extraction and bagged decision trees to recognize back, arm, and leg postures, achieving up to 97.6\% accuracy in dynamic outdoor settings. \citet{seo2021automated} used body silhouette features and a Support Vector Machine trained on virtual human postures, reaching 88.6\% accuracy. Building on these methods, deep learning enabled 3D pose estimation and integration with ergonomic assessment tools. \citet{yu2019joint} combined a deep learning-based 3D model with REBA for joint-level assessment from 2D videos, reporting 70–96\% accuracy in both lab and field experiments. \citet{massirisfernandez2020ergonomic} used convolutional neural networks to compute RULA scores directly from images and videos under real working conditions. Hybrid learning-based methods further extended accuracy and predictive capabilities. For example, \citet{wang2021risk} employed a convolutional pose machine with a probabilistic neural network, yielding 87.0\% accuracy in joint recognition and over 96\% accuracy in predicting musculoskeletal disorder risk levels. \citet{li2024data} introduced a data-driven approach using Heuristic Gaussian Cloud Transformation with fuzzy inference and 3D pose estimation from RGB videos. Recent advances incorporate temporal and motion-based modeling. \citet{zhao2021applying} applied an incremental Convolutional LSTM to posture recognition from wearable IMUs. \citet{wang20233d} developed a 3D vision framework integrated with predetermined motion time systems for modular construction tasks. \citet{chen2024automatic} proposed a transformer-based model with self-similarity matrices to automatically count repetitive worker actions. 
+
+
+
+
+
+\subsection{Research Gap}
+
+% Current approaches to ergonomic risk detection in construction environments often suffer from limitations in tracking the duration and frequency of risky postures, particularly bending, which are critical indicators of long-term musculoskeletal risk. Most existing studies focus only on posture classification at isolated time points, overlooking the cumulative impact of repetitive or prolonged movements. Additionally, they often lack the ability to provide contextual or adaptive feedback, which limits their practical utility on dynamic construction sites. To address these challenges, this research proposes a real-time ergonomic risk detection system with two core innovations: (1) Precise measurement of bending duration and frequency, which enables more comprehensive and time-aware ergonomic assessments; (2) Integrating a Retrieval-Augmented Generation (RAG) system that delivers dynamic, context-aware feedback and recommendations based on detected risks. Together, these contributions improve the accuracy, interpretability, and practicality of ergonomic monitoring, while enabling low-cost deployment suitable for construction sites of all sizes.
+
+Existing approaches to ergonomic risk detection in construction environments often struggle to capture the duration and frequency of risky postures, particularly trunk bending, which are critical indicators of long-term injury risk. Most studies emphasize posture classification at isolated time points and overlook the cumulative effects of repetitive or sustained movements. In addition, current methods rarely provide contextual or adaptive feedback, which limits their usefulness in dynamic construction settings. To overcome these challenges, this research introduces a real-time ergonomic risk detection system with two key innovations: (1) accurate measurement of bending duration and frequency that enables more comprehensive and time-aware ergonomic assessments; and (2) integration of a Retrieval-Augmented Generation (RAG) framework that delivers dynamic, context-aware feedback and recommendations based on detected risks. 
+
+\section{Methodology}
+% \subsection{System Design and Architecture}
+
+To enable real-time, low-cost ergonomic risk monitoring in dynamic construction environments, we design a lightweight system deployable with a single RGB camera and an edge device. It comprises a camera that captures video feeds of workers during routine activities. The stream is processed in real time by a YOLOv8 pose estimator to identify each worker and estimate their pose. Capture, processing, and visualization are implemented with OpenCV. The architecture includes modules for pose estimation, activity monitoring, and risk analysis. Figure \ref{fig1} presents the system architecture for human pose detection. 
+
+% The ergonomic risk detection system is designed using the YOLOv8 architecture \citep{terven2023comprehensive}. The system begins with an input image resized to dimensions of 640×640×3 and processes it through three primary stages: backbone, neck, and head. The backbone is responsible for extracting key features from the input image. It uses CBS modules (Convolution, Batch Normalization, and SiLU activation layers) to enhance the image features by detecting essential patterns like edges, shapes, and textures. To capture a wide range of details, C2F (Cascaded Convolution with different Filter sizes) modules are applied. C2F focuses on both broad patterns, such as body shapes, and finer details, such as the positions of hands or feet. Stride-2 convolutions are used to reduce the spatial size of the image. Later, up-sampling steps restore the resolution, which ensures that no essential features are lost.
+
+The ergonomic risk detection system is designed using the YOLOv8 architecture \citep{terven2023comprehensive}. The system begins with an input image resized to 640×640×3 and processes it through three primary stages: backbone, neck, and head. The backbone extracts key features using CBS modules (convolution, batch normalization, and SiLU, the Sigmoid Linear Unit activation) to enhance essential patterns such as edges, shapes, and textures. To capture a wide range of details, C2f blocks (a lightweight cross stage partial design that improves gradient flow and feature reuse) are applied. Stride 2 convolutions reduce the spatial size of the feature maps, and an SPPF block (Spatial Pyramid Pooling Fast) at the end of the backbone aggregates multiscale context. Upsampling is performed later in the neck for multiscale feature fusion. 
+The neck serves as the feature aggregation stage, where extracted features are refined and prepared for detection. It uses a feature pyramid with path aggregation, commonly implemented as an FPN (Feature Pyramid Network) with PAN (Path Aggregation Network), to combine information from multiple scales. This enables the system to focus on both small and large details simultaneously. The neck also employs upsampling and concatenation operations, which preserve key details and create a clear and comprehensive feature map for further analysis. The head of the architecture is designed to detect body keypoints and poses. It includes three detection heads, each operating at a different spatial scale for small, medium, and large instances. Each head is anchor free and decoupled, producing a person bounding box, class scores, and K keypoints per instance, where K is the number of defined body keypoints. The higher resolution scale helps localize small structures such as hands and feet, the lower resolution scales capture larger structures such as the torso and hips, and the medium scale supports intermediate parts such as elbows and knees. A minimum confidence threshold of 0.5 was selected after experimenting with various values to balance detection accuracy and reliability. 
+% Thresholds below 0.5 caused the model to mistakenly identify joints on non-human objects and reduced the clarity of human posture detection. Conversely, thresholds above 0.5 were overly strict and filtered out some actual human detections and leading to incomplete posture analysis. 
+Additionally, smoothing techniques are used to stabilize the detected keypoints across frames, which prevents jitter in real-time applications.
+
+% The final output of the system is a skeletal overlay on the original image, visually representing the detected poses and body keypoints. This design is highly effective for applications such as construction safety monitoring, where it is important to evaluate workers’ postures and identify risky positions or movements that could lead to injuries. By providing accurate feedback in real time, the system helps prevent workplace accidents and ensures ergonomic safety in dynamic environments.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.9\textwidth}
+    \includegraphics[width=\textwidth]{figures/Methodology.pdf}
+    \end{subfigure}
+    \caption{Proposed Architecture} 
+    \label{fig1}
+\end{figure}
+
+
+\subsection{Pose Estimation and Landmark Smoothing}
+Pose estimation in this approach relies on YOLOv8 to estimate body keypoints for worker posture assessment: head, shoulders, hips, knees, and ankles. Figure \ref{fig2} represents the various keypoints of the human body that are identified by the YOLOv8 model. The model identifies these keypoints and makes connections between various poses to create a skeleton of the person detected.
+
+\begin{figure}[H]
+    \centering
+    % \begin{subfigure}[b]{1\textwidth}
+    \includegraphics[width=0.5\textwidth]{figures/Poses.jpg}
+    % \end{subfigure}
+    \caption{Keypoints identified by YOLOv8 model}
+    \label{fig2}
+\end{figure}
+
+A landmark smoothing technique is performed to increase the stability of the predicted keypoints. The moving average is computed over successive frames for each keypoint by the smoothing function to reduce jitter. This ensures that the detected postures reflect the real movements of workers. A simple moving average was selected over more complex filtering methods due to its computational efficiency and ease of implementation, which are critical for real-time applications. 
+% This approach requires minimal parameter tuning. The moving average provided an effective and practical solution without the overhead of more sophisticated filters. 
+The landmark smoothing scheme significantly improves the coherence of posture detections, particularly in challenging conditions where rapid movements may introduce noise in the detection process. Enhancements were made to the existing YOLO model by integrating a novel smoothing technique which contributed to increasing the stability and coherence of pose estimation. The smoothing function averaged for every keypoint in position through successive frames. The formula used to calculate and incorporate the landmark smoothing mechanism is 
+
+\begin{equation}
+     S_i = (1 - \alpha)P_i + \alpha C_i
+\end{equation}
+
+where, 
+\\ $S_i$ = Smoothed coordinates (x,y) of landmark i after smoothing
+\\ $P_i$ = (x,y) coordinates of the landmark in previous frame
+\\ $C_i$ = (x,y) coordinates of the landmark in current frame
+\\ $\alpha$ = Smoothing factor
+
+The smoothing factor reduces jitter in detected keypoints across frames by averaging the current frame’s coordinates with previous frames. It does not affect which detections are kept, but changes how detected keypoints are positioned and stabilized over time. A smoothing factor of 0.5 was chosen to achieve a balanced trade-off between responsiveness and stability in keypoint tracking. Lower values made the output overly sluggish, which caused delays in reflecting quick posture changes. Higher values introduced instability by allowing too much jitter from rapid movements. A value of 0.5 provided sufficiently smooth trajectories without sacrificing the system’s ability to capture real-time posture dynamics accurately. 
+
+\subsection{Ergonomically Risky Activity Detection}
+This module classifies worker activities using pose landmarks and evaluates ergonomic risk according to the REBA method \citep{hignett2000rapid}. REBA provides standardized scoring to reflect the severity of bending and other postural loads. In this study, we focused on bending, with the trunk angle (i.e., forward flexion of the torso) serving as a key parameter in REBA scoring. The focus of this study was solely on trunk flexion because the primary objective was to determine ergonomic risk based on bending posture statistics of workers. Since bending frequency and duration are central to trunk flexion assessment, this study applies REBA scoring only to the trunk flexion component.
+
+% \subsubsection{Trunk Angle and REBA Score}
+Let \(\vec{HS}\) be the vector from the hip midpoint \((H_x, H_y)\) to the shoulder midpoint \((S_x, S_y)\), and let \(\vec{V}\) be the vertical reference vector. We define:
+\begin{align}
+    \vec{HS} & = (S_x - H_x,\; S_y - H_y)\\
+    \vec{V} & = (0,\; 1)
+\end{align}  
+
+\noindent The trunk angle \(\theta_{\text{trunk}}\) is computed as follows:
+
+\begin{equation}
+    \theta_{\text{trunk}} 
+    = \arccos \Bigl( \frac{\vec{HS} \cdot \vec{V}}{\|\vec{HS}\|\|\vec{V}\|} \Bigr)
+    \times \frac{180}{\pi},
+\end{equation}
+
+\noindent where \(\theta_{\text{trunk}}\) is measured in degrees. According to REBA, the trunk flexion score for bending is typically assigned as shown in Table~\ref{table:trunkscore}. Note that this table covers only the trunk score. This method can be used to compute the full REBA assessment as part of future work. The final REBA score also considers other body segments (e.g., neck, legs, arms), coupling (e.g., load handling), and any twisting or lateral bending. For example, if the trunk is also twisted or laterally bent, additional points are added to the trunk score.
+
+\begin{table}[H]
+\renewcommand{\baselinestretch}{1.0}\selectfont % 只在本表内恢复正常行距
+\renewcommand{\arraystretch}{0.92}              % 微调行高
+\setlength{\tabcolsep}{4pt}                     % 压缩左右内边距，默认 6pt
+\centering
+\small
+\caption{REBA trunk scoring based on forward flexion angle}
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Trunk Flexion (Forward Bend)} & \textbf{Angle Range} & \textbf{REBA Score} \\
+\hline
+Slight & $0^\circ$--$20^\circ$ & 2 \\
+Moderate & $20^\circ$--$60^\circ$ & 3 \\
+Severe & $>60^\circ$ & 4 \\
+\hline
+\end{tabular}
+\label{table:trunkscore}
+\end{table}
+
+In this research, a posture is classified as bending when the trunk angle \(\theta_{\text{trunk}}\) exceeds a specified lower threshold (e.g., $20^\circ$).
+% More specifically:
+% \begin{equation}
+%     B = 
+%     \begin{cases}
+%     1, & \text{if } \theta_{\text{trunk}} \geq 20^\circ,\\
+%     0, & \text{otherwise.}
+%     \end{cases}
+% \end{equation}
+Depending on the measured trunk angle, a REBA trunk score of 2, 3, or 4 is assigned (see Table~\ref{table:trunkscore}). A threshold of $20^\circ$ was selected based on the REBA framework \citep{hignett2000rapid}. The system also tracks how many times a worker transitions into a bending posture. Whenever the posture changes from standing to bending, it increments the bending count \(n_b\):
+
+\begin{equation}
+    n_b = \sum_{i=1}^{n} 
+    1\Bigl(S_{\text{prev}, i} = \text{Standing} \,\land\, S_{\text{current}, i} = \text{Bending}\Bigr),
+\end{equation}
+
+\noindent where,\\
+$n_b$ = Total number of bending transitions;\\
+$S_{\text{prev}, i}$ = Previous posture state;\\
+$S_{\text{current}, i}$ = Current posture state;\\
+$1(\cdot)$ = Indicator function;\\
+$n$ = Total number of time steps.
+
+% \subsubsection{Activity Duration}
+A timer tracks the time spent in each bending episode. For $n$ identified bending periods, the total duration \(D_a\) is
+\begin{equation}
+    D_a = \sum_{i=1}^{n_b} \bigl(T_{\text{end}, i} - T_{\text{start}, i}\bigr)
+\end{equation}
+
+\noindent where,\\
+$D_a$ = Total bending duration;\\
+$T_{\text{end}, i}$ = End time of the  $i$th bend; \\
+$T_{\text{start}, i}$ = Start time of the $i$th bend; \\
+$n_b$ = Total number of bending transitions.\\
+
+In real time, the system measures the trunk angle, calculates the REBA trunk score, and updates bending duration and count. These factors are used to estimate an overall REBA score or to trigger alerts if bending duration and count exceed recommended thresholds. When a worker is flagged for prolonged bending or frequent transitions into bending, further ergonomic analysis may be required to determine the overall REBA risk level and implement risk mitigation strategies.
+
+
+\subsection{Risk Mitigation Recommendations Using VLM and RAG}
+This module generates individualized ergonomic risk recommendations through a two stage pipeline that uses both a Vision Language Model (VLM) and a Large Language Model (LLM). Figure~\ref{fig3r} shows the overall framework. First, the system assembles the inputs needed for recommendation. A VLM such as Qwen2 produces a text description of the construction activity from an input image, including salient actions, tools, and observable context. An example VLM prompt is provided in Table~\ref{table:prompts}. Posture statistics are obtained from the YOLOv8 method described earlier, including bending counts and bending duration for each individual. These elements are programmatically inserted into a template, where placeholders enclosed in angle brackets represent content returned by the models.
+Second, the system generates recommendations with retrieval augmented generation (RAG). Relevant standards and public sources (e.g., \citep{albers2007simple}), including safety guidelines and incident statistics, form the knowledge base. The RAG layer retrieves passages that match the current activity description and posture statistics. An LLM accessed through public APIs (for example ChatGPT, DeepSeek, or LLaMA) then composes answers to three targets specified in Table~\ref{table:prompts}: causes of risk, mitigation strategies, and corrective actions. The recommendations are grounded by the retrieved passages and are returned with the supporting snippets for transparency. To ensure usefulness and accuracy, the recommendations produced by the VLM–RAG–LLM pipeline are reviewed by domain experts in construction safety and ergonomics, and the retrieved content is cross checked against authoritative safety guidelines before finalization.
+
+\begin{figure}[H]
+\centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \includegraphics[width=\textwidth]{figures/LLM.png}
+    \end{subfigure}
+    \caption{An information flow of generating recommendations for risk mitigation strategy using LLMs} 
+    \label{fig3r}
+\end{figure}
+
+% First, the information about the construction activity and risk assessment will be generated. The activity information will be produced by using vision language models such as Qwen2-VL or Molmo, which generates text description of an given image. An example prompt to generate such description is shown in \ref{table:prompts}. Then the risk assessment results will be obtained from the YOLOv8 method described earlier in this paper. Once this information is collected, a prompt will be created as shown in \ref{table:prompts}. The placeholders enclosed in angle brackets represent the content generated from models. Task descriptions are obtained from models such as Qwen2-VL vision language models. Posture related statistics such as bending counts, and bending duration of individuals, are obtained from the ergonomic risk assessment via YoLov8. These are utilized as base inputs to create a prompt for LLMs.
+
+
+
+\begin{table}[H]
+\renewcommand{\baselinestretch}{1.0}\selectfont % 只在本表内恢复正常行距
+\renewcommand{\arraystretch}{0.92}              % 微调行高
+\setlength{\tabcolsep}{4pt}                     % 压缩左右内边距，默认 6pt
+\centering
+\small
+\caption{Prompts used for activity description and risk analysis}
+\begin{tabular}{p{3.2cm} p{11.5cm}}
+\toprule
+\textbf{Prompt} & \textbf{Description} \\
+\midrule
+VLM Prompt & \ttfamily Please provide a detailed description of the construction worker's activity in this image, including specific actions, tools being used, and the work context if identifiable. \\[0.5em]
+LLM Prompt & \ttfamily Based on the following description of a construction worker's activity from an image: <<Task description>>. <<Posture related statistics>>. \newline\newline 
+Please analyze the worker’s activity and provide: 
+\begin{enumerate}[nosep, leftmargin=*]
+    \item <<Causes of risk>>
+    \item <<Risk mitigation strategies>>
+    \item <<Corrective actions>>
+\end{enumerate} \\
+\bottomrule
+\end{tabular}
+\label{table:prompts}
+\end{table}
+
+% Meanwhile, relevant standards and public information, such as safety guidelines and statistics from incident reports (e.g., \citep{albers2007simple}), are used as knowledge basis. A Retrieval-Augmented Generation (RAG) system is developed based on the knowledge basis using the latest LLM models' api such as ChatGPT, DeepSeek, and LLAMA. The above prompt will be fed into the RAG designed to retrieve answers related to cause of risk, risk mitigation strategy, and corrective action to reduce ergonomic risks, from the LLMs based on the given inputs. Through this process, this module recommends individualized ergonomic risk mitigation strategies based on the current observed activities of individuals and safety-related documentation. The recommendations generated by the LLM and RAG modules were reviewed and validated by domain experts in construction safety and ergonomics to ensure their usefulness and accuracy. In addition, the content retrieved and synthesized by the RAG system was cross-checked against authoritative safety guidelines to confirm that the outputs were reliable and grounded in correct safety knowledge.
+
+
+
+% A structure of an appropriate prompt is organized using these five types of data related to ergonomic risks of construction workers \textbf{(Note: it would be great if we can put an example of a prompt template here)}. This allows the recommendation system to have a standardized prompt engineering process to obtain consistent and reliable outputs from the LLMs. 
+
+
+
+
+
+
+% \begin{figure}[H]
+% \centering
+%     \begin{subfigure}[b]{0.8\textwidth}
+%         \includegraphics[width=\textwidth]{figures/figure_1.pdf}
+%     \end{subfigure}
+%     \caption{Framework of RAG} 
+%     \label{fig:rag}
+% \end{figure}
+
+% As shown in the figure \ref{fig:rag} a typical pipeline for a Retrieval-Augmented Generation (RAG) system, where documents and questions are processed to generate a relevant answer using a language model.
+
+
+
+% The process begins with raw documents \( D = \{d_1, d_2, \dots, d_N\} \), such as technical manuals, reports, or articles. Each document \( d_i \) is split into smaller, coherent chunks \( c_{ij} \), where \( i \) denotes the document index and \( j \) represents the chunk index. The resulting set of chunks \( C = \{c_{ij}\} \) ensures that each text chunk is manageable and semantically meaningful.
+
+% Each text chunk \( c_{ij} \) is transformed into a high-dimensional vector embedding \( e_{ij} \) using an embedding model \( E \) (e.g., SBERT):
+% \begin{equation}
+% e_{ij} = E(c_{ij}), \quad e_{ij} \in \mathbb{R}^d
+% \end{equation}
+% Here:
+% \begin{itemize}
+%     \item \( E(c_{ij}) \): Embedding function mapping the chunk \( c_{ij} \) to its vector representation,
+%     \item \( e_{ij} \): Embedding of the chunk,
+%     \item \( d \): Dimensionality of the embedding space.
+% \end{itemize}
+% The embeddings for all chunks in a document \( d_i \) are grouped together as:
+% \begin{equation}
+% E_i = \{ e_{i1}, e_{i2}, \dots, e_{im} \}
+% \end{equation}
+% where \( E_i \) represents the set of embeddings for the chunks of document \( d_i \).
+
+% These embeddings for all documents are stored in the \textbf{Knowledge Base \( V \)}, which is defined as:
+% \begin{equation}
+% V = \{ E_1, E_2, \dots, E_N \} 
+% \end{equation}
+% Here:
+% \begin{itemize}
+%     \item \( V \): The knowledge base containing all chunk embeddings,
+% \end{itemize}
+
+% When a user submits a query \( q \), it is embedded into a vector representation \( e_q \) using the same embedding model:
+% \begin{equation}
+% e_q = E(q), \quad e_q \in \mathbb{R}^d
+% \label{eq:embedding}
+% \end{equation}
+% The query embedding \( e_q \) is compared with the document embeddings \( e_{ij} \) stored in the knowledge base \( V \) to identify the most relevant chunks. Similarity metrics, such as cosine similarity, are used to measure relevance:
+% \begin{equation}
+% \text{cosine\_similarity}(e_q, e_{ij}) = \frac{e_q \cdot e_{ij}}{\| e_q \| \| e_{ij} \|}
+% \label{eq:cosine}
+% \end{equation}
+% Alternatively, Euclidean distance (L2) can be used to calculate the nearest vector:
+% \begin{equation}
+% \text{distance}(e_q, e_{ij}) = \| e_q - e_{ij} \|
+% \end{equation}
+
+% To handle large datasets efficiently, Approximate Nearest Neighbour (ANN) methods, such as \textbf{Scalable Nearest Neighbours (ScaNN)} or \textbf{Hierarchical Navigable Small World (HNSW)}, are employed to retrieve the top-\( k \) most relevant chunks, denoted as \( C_{\text{top-}k} \):
+% \begin{equation}
+% C_{\text{top-}k} = \text{ScaNN}(e_q, V) \quad \text{or} \quad C_{\text{top-}k} = \text{HNSW}(e_q, V)
+% \end{equation}
+% Here:
+% \begin{itemize}
+%     \item \( C_{\text{top-}k} \): The top-\( k \) chunks most relevant to the query embedding \( e_q \),
+%     \item \( V = \{e_{ij}\} \): The knowledge base of all document embeddings,
+%     \item \textbf{ScaNN (Scalable Nearest Neighbours)}: A highly efficient ANN algorithm optimized for large-scale similarity searches in high-dimensional spaces,
+%     \item \textbf{HNSW (Hierarchical Navigable Small World)}: A graph-based ANN algorithm that builds a multi-layered graph structure for efficient nearest neighbor searches.
+% \end{itemize}
+
+% The retrieved chunks \( C_{\text{top-}k} \) are concatenated with the query \( q \) to form the \textbf{context}, which is the input for the language model. The context vector is represented as:
+% \begin{equation}
+% \text{context} = [q, c_{\text{top-}1}, c_{\text{top-}2}, \dots, c_{\text{top-}k}]
+% \end{equation}
+
+% The language model \( G \) (e.g., GPT-4 Turbo or Deepseek) processes the input context to generate a response \( r \):
+% \begin{equation}
+% r = G(\text{context})
+% \end{equation}
+% The generative model predicts the response by modeling the probability distribution over the possible sequence of tokens:
+% \begin{equation}
+% P(r \mid \text{context}) = \prod_{t=1}^T P(r_t \mid r_{1:t-1}, \text{context})
+% \end{equation}
+% Here:
+% \begin{itemize}
+%     \item \( r \): The generated response,
+%     \item \( r_t \): The \( t \)-th token of the response,
+%     \item \( P(r_t \mid r_{1:t-1}, \text{context}) \): The probability of generating token \( r_t \) given the prior tokens and the context.
+% \end{itemize}
+
+% The output \( r \) is presented to the user as the final answer, completing the RAG process.
+
+
+
+
+\section{Case Study}
+In this research, the system was initially tested using a regular webcam. The experiment was conducted on an Apple MacBook Pro with M3 chip. The system had 18 GB memory and ran on macOS Sequoia 15.1.1. 20 Creative Commons–licensed videos were gathered. They covered five construction activities: drywall finishing, tying rebar, kneeling creepers, hand screeding, and laying concrete block, with four videos for each activity. The videos range from 10 to 20 minutes in duration and feature an average of 2–3 participants per video, which resulted in approximately 40-60 participants in total. All recordings were captured in real construction site environments, typically filmed by a moving person. Camera heights generally ranged from approximately 1.2 to 1.7 meters above the ground that corresponded to chest or eye level of the videographer. For analysis, each video was processed into frames at a rate of one frame per second. During pose detection, every second frame was skipped to reduce computational load while preserving critical motion details. The accuracy of pose detection and activity classification was manually verified by the authors to ensure the system effectively flagged critical ergonomic risks. 
+
+% \subsection{Pose Estimation}
+% The pose estimation module of the proposed system uses YOLOv8 for the detection of key body keypoints like the head, shoulders, hips, knees, and ankles with high accuracy. During the preliminary tests, the system could capture those keypoints in real time. It also detects key points accurately by carefully validating them through a comparison with the actual poses that workers go through. 
+
+% In this study, the coordinates of detected keypoints are represented in pixel values relative to the image frame, rather than real-world units. This choice aligns with the input format of the YOLOv8 model and enables consistent processing across varying camera setups without requiring camera calibration or depth estimation.
+
+
+% \begin{figure}[H]
+% \centering
+%         \includegraphics[width=0.4\textwidth]{figures/Pose Estimation.png}
+%     \caption{Pose estimation using YOLOv8} 
+%     \label{fig3}
+% \end{figure}
+
+% Figure \ref{fig3} illustrates the pose estimation result using the YOLOv8 model, applied to a scenario involving several construction workers. The video used in this figure is licensed under Creative Commons Attribution \citep{Video}. Our model successfully detects the human subjects and maps their skeletal structure with precise keypoints representing joints and limbs. These keypoints are connected to form a skeleton overlay that indicates the individual's posture and movements. This visualization demonstrates the system's ability to accurately analyze human poses in real-world environments, which is crucial for monitoring unsafe postures that could lead to injuries. For example, it can identify movements like excessive bending, twisting, or awkward lifting, which put strain on the body and increase the risk of muscle or joint injuries over time.
+
+% However, there are still some cases where YOLOv8 is not able to identify postures and joints perfectly, such as the examples shown below.
+
+% \begin{figure}[H]
+% \centering
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{figures/Edge Case 1.png}
+%         \caption{Pose detection difficulty due to multiple people and low visibility}
+%         \label{fig:edge1}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.45\textwidth}
+%         \includegraphics[width=\textwidth]{figures/Edge Case 2.png}
+%         \caption{Pose detection failure due to overlapping workers}
+%         \label{fig:edge2}
+%     \end{subfigure}
+%     \caption{Examples of pose estimation challenges}
+%     \label{fig:edge_cases}
+% \end{figure}
+
+% As shown in Figure \ref{fig:edge_cases}, these are some cases where the system struggled to detect poses accurately. One example is when there are many people in the scene as shown in Figure \ref{fig:edge_cases}(a), and some are farther from the camera, making them less visible due to lower video quality. Another challenging scenario occurs when two workers overlap or stand directly in front of each other as shown in Figure \ref{fig:edge_cases}(b), causing one of them to be partially or completely unrecognized by the model. These limitations could potentially be addressed by integrating temporal information from consecutive frames, which allowes the model to infer occluded keypoints based on motion patterns. Additionally, incorporating higher-resolution video inputs or using multi-camera setups could help capture distant or partially obstructed individuals more clearly. Advanced post-processing techniques, such as keypoint tracking and interpolation, could also improve the robustness of pose estimation in challenging construction site environments.
+
+\subsection{Landmark Smoothing}
+
+The landmark smoothing technique is used to enhance the system's ability to generate more refined and accurate representations of workers' postures during continuous movement. Figure \ref{fig4} illustrates the impact of landmark smoothing on pose estimation using YOLOv8. Figures \ref{fig:1b}, \ref{fig:2b}, and \ref{fig:3b} show keypoint positions without smoothing, where minor fluctuations between frames create inconsistencies. These variations can lead to inaccuracies in dynamic pose analysis, particularly in real-time applications. In contrast, Figures \ref{fig:a1}, \ref{fig:a2}, and \ref{fig:a3} present the results after applying landmark smoothing, which revealed more stable and consistent keypoint trajectories. The smoothing algorithm reduces abrupt changes by averaging each frame's landmark positions with those from previous frames by using a specified smoothing factor. This process stabilizes the skeletal representation, which ensures a more accurate depiction of movement over time. 
+
+\begin{figure}[H]
+    \centering
+    % ---------------- Row 1 ----------------
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        
+
+        \begin{subfigure}[b]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/Landmark Smoothing 1 - Before.png}
+            \caption{Image 1 before smoothing}
+            \label{fig:1b}
+        \end{subfigure}\hfill
+        \begin{subfigure}[b]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/Landmark Smoothing 2 - Before.png}
+            \caption{Image 2  before smoothing}
+            \label{fig:2b}
+        \end{subfigure}\hfill
+        \begin{subfigure}[b]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/Landmark Smoothing 3 - Before.png}
+            \caption{Image 3  before smoothing}
+            \label{fig:3b}
+        \end{subfigure}
+    \end{subfigure}
+
+    % ---------------- Row 2 ----------------
+    \begin{subfigure}[b]{\textwidth}
+        \centering
+        % \textbf{After landmark smoothing}   % row title without (e)
+
+        \begin{subfigure}[b]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/Landmark Smoothing 1 - After.png}
+            \caption{Image 1 after smoothing}
+            \label{fig:a1}
+        \end{subfigure}\hfill
+        \begin{subfigure}[b]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/Landmark Smoothing 2 - After.png}
+            \caption{Image 2  after smoothing}
+            \label{fig:a2}
+        \end{subfigure}\hfill
+        \begin{subfigure}[b]{0.30\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{figures/Landmark Smoothing 3 - After.png}
+            \caption{Image 3  after smoothing}
+            \label{fig:a3}
+        \end{subfigure}
+    \end{subfigure}
+
+    % ---- Overall figure caption ----
+    \caption{Comparison of pose estimation with and without landmark smoothing}
+    \label{fig4}
+\end{figure}
+
+
+
+\subsection{Detection of Activity with Ergonomic Risks}
+
+% In this case study, the system used smoothed keypoints to detect activities with ergonomic risks, which distinguished between standing, bending, and transition states. The tests confirmed that the system could classify continuous repetitions of bending and standing in real time. Manual verification showed that the frames were correctly classified. The following are examples of applying the proposed system to various construction activities such as drywall finishing, hand screeding, kneeling creper, laying concrete blocks, and tying rebar.
+
+Figure \ref{fig5} shows skeletal overlays of workers performing drywall finishing tasks in three different scenarios. Drywall finishing involves the process of smoothing, taping, and sealing joints between drywall sheets after they are mounted on walls or ceilings. This work often requires individuals to bend and crouch, as they need to reach lower sections of the wall or work in confined spaces to apply compound and tape properly. Prolonged bending during drywall finishing can strain the lower back, which increases the risk of injury. Figure \ref{fig5(a)} shows a single worker labeled as "Person 1," who remains standing across multiple frames. The skeletal overlays display straight lines that represent the worker’s upright posture. It shows that the skeletons remain stable throughout the sequence. The figure also shows that no red lines appear in these frames, which means that no bending was detected. Figure \ref{fig5(b)} includes two workers labeled as "Person 1" and "Person 2." Each worker seem to perform different activities over time. "Person 1" moves between normal and risky postures. "Person 2" remains in normal posture without changes. Figure \ref{fig5(c)} illustrates the activities of "Person 2" across a sequence of frames. The worker alternates between standing and bending. 
+
+% \subsubsection{Drywall Finishing}
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Drywall Finishing Test 1.png}
+        \caption{Scenario 1}
+        \label{fig5(a)}
+    \end{subfigure}
+    % \vspace{-0.5\baselineskip}
+    \hfill
+    % Row 2
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Drywall Finishing Test 2.png}
+        \caption{Scenario 2}
+        \label{fig5(b)}
+    \end{subfigure}
+    % \vspace{-0.5\baselineskip} % Space between rows
+    % \hfill
+    % Row 3
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Drywall Finishing Test 3.png}
+        \caption{Scenario 3}
+        \label{fig5(c)}
+    \end{subfigure}
+
+    \caption{Skeleton Representation of Workers Performing Drywall Finishing (Red: Ergonomic Risk Activity)
+}
+    \label{fig5}
+\end{figure}
+
+
+
+% \subsubsection{Hand Screeding}
+
+Figure \ref{fig6} depicts skeletal overlays of workers' performing hand screeding. Hand screeding is a labor intensive process used in construction to level and smooth concrete surfaces. This activity uses a flat board or screed to spread the concrete evenly across the surface. Workers often need to bend and stoop while performing this task to ensure an even and level finish. During hand screeding, repetitive bending and awkward postures can place significant strain on the back, especially during prolonged tasks. Figure \ref{fig6(a)} shows multiple workers labeled as "Person 1" to "Person 4." The majority are in normal posture, represented by green skeletons, while "Person 1" transitions into bending, shown with red skeletons. Figure \ref{fig6(b)} focuses on two workers, "Person 1" and "Person 2," actively alternating between standing and bending. "Person 1" shows a mix of standing and bending postures, visualized through alternating green and red skeletons. "Person 2" primarily shows ergonomically risky postures, represented by red skeletons. Figure \ref{fig6(c)} includes a group of workers labeled from "Person 1" to "Person 6." The skeletal overlays illustrate a variety of activities, with some individuals standing consistently and others bending intermittently. "Person 3" and "Person 5" exhibit frequent bending motions, indicated by red skeletons, while "Person 4" and "Person 6" remain standing throughout the sequence. 
+
+
+
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Hand Screeding Test 1.png}
+        \caption{Scenario 1}
+        \label{fig6(a)}
+    \end{subfigure}
+
+    % \vspace{-0.5\baselineskip} % Space between rows
+
+    % Row 2
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Hand Screeding Test 2.png}
+        \caption{Scenario 2}
+        \label{fig6(b)}
+    \end{subfigure}
+    % \vspace{-0.5\baselineskip} % Space between rows
+
+    % Row 3
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Hand Screeding Test 3.png}
+        \caption{Scenario 3}
+        \label{fig6(c)}
+    \end{subfigure}
+    \caption{Skeleton representation of workers performing hand screeding over consecutive frames at 1-second intervals}
+    \label{fig6}
+\end{figure}
+
+
+
+% \subsubsection{Kneeling Creeper}
+
+Figure \ref{fig7} depicts skeletal overlays of workers' performing kneeling finishing. Kneeling finishing are used in construction and other manual tasks where workers need to spend extended periods kneeling on hard surfaces, such as during tasks like tiling, plumbing, or electrical work. Kneeling for long durations can lead to discomfort, joint pain, and strain on the knees and lower back. This repetitive pressure can be physically taxing, especially in environments where the worker must stay in a kneeling position for long periods. Figure \ref{fig7(a)} shows two workers labeled as "Person 1" and "Person 2." "Person 1" is predominantly engaged in bending postures, represented by red skeletons, while "Person 2" alternates between standing and bending. Figure \ref{fig7(b)} focuses on "Person 1," demonstrating repeated transitions between bending and standing postures. The red skeletons depict periods of kneeling, while the green skeletons represent standing intervals. Figure \ref{fig7(c)} includes a detailed sequence for "Person 1," which shows transitions from bending to standing over several frames. 
+
+
+\begin{figure}[H]
+    \centering
+    
+    % Row 1
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Kneeling Creeper Test 1.png}
+        \caption{Scenario 1}
+        \label{fig7(a)}
+    \end{subfigure}
+
+    % \vspace{-0.5\baselineskip} % Space between rows
+
+    % Row 2
+    \begin{subfigure}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Kneeling Creeper Test 2.png}
+        \caption{Scenario 2}
+        \label{fig7(b)}
+    \end{subfigure}
+    \hfill
+    % Row 3
+    \begin{subfigure}[b]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Kneeling Creeper Test 3.png}
+        \caption{Scenario 3}
+        \label{fig7(c)}
+    \end{subfigure}    
+    
+    \caption{Skeleton representation of workers performing kneeling creepers over consecutive frames at 1-second intervals}
+    \label{fig7}
+\end{figure}
+
+
+
+% \subsubsection{Laying Concrete Block}
+
+Figure \ref{fig8} depicts skeletal overlays of workers' laying concrete blocks. Laying concrete blocks is a physically demanding task that requires workers to lift, position, and align heavy blocks to create walls or other structures. This often involves bending, lifting, and repetitive motions, which can cause strain on the back, shoulders, and arms, especially when working with traditional, heavy concrete blocks. Constantly lifting and manipulating these blocks over extended periods can lead to fatigue and increase the risk of musculoskeletal injuries. Figure \ref{fig8(a)} shows "Person 1" engaged in bending activities across multiple frames. Figure \ref{fig8(b)} includes two workers, "Person 1" and "Person 2." "Person 1" alternates between standing and bending postures, shown by the mix of green and red skeletons, while "Person 2" remains consistently standing. Figure \ref{fig8(c)} focuses on "Person 1" maintaining a standing posture across several frames. 
+
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Laying Concrete Block Test 1.png}
+        \caption{Scenario 1}
+        \label{fig8(a)}
+    \end{subfigure}
+    \hfill
+    % Row 3
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Laying Concrete Block Test 3.png}
+        \caption{Scenario 3}
+        \label{fig8(c)}
+    \end{subfigure}    
+    % Row 2
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Laying Concrete Block Test 2.png}
+        \caption{Scenario 2}
+        \label{fig8(b)}
+    \end{subfigure}
+    % \vspace{-0.5\baselineskip} % Space between rows
+
+    \caption{Skeleton representation of workers laying concrete blocks over consecutive frames at 1-second intervals}
+    \label{fig8}
+\end{figure}
+
+
+
+% \subsubsection{Tying Rebar}
+
+Figure \ref{fig9} depicts skeletal overlays of workers' tying rebar.  Tying rebar requires workers to bend, twist, and secure metal rebar with wire ties. This task involves repetitive hand movements and awkward postures, often requiring workers to bend down or crouch for long periods. This can lead to strain on the back, hands, and wrists. The repetitive nature of tying rebar also increases the risk of hand injuries or discomfort from prolonged gripping. Figure \ref{fig9(a)} shows two workers, "Person 1" and "Person 2," predominantly engaged in bending activities. The red skeletons represent bending postures consistently, with multiple frames showing "Person 1" bending, while "Person 2" is seen bending in the middle of the sequence. Figure \ref{fig9(b)} features "Person 1" and "Person 2," both transitioning between standing and bending postures. "Person 1" shows a more upright posture in most frames, while "Person 2" demonstrates intermittent bending. Figure \ref{fig9(c)} focuses on the activity of "Person 2" and demonstrates transitions from standing to bending and back to standing. 
+
+\begin{figure}[H]
+    \centering
+    % Row 1
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Tying Rebar Test 1.png}
+        \caption{Scenario 1}
+        \label{fig9(a)}
+    \end{subfigure}
+    % Row 2
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Tying Rebar Test 2.png}
+        \caption{Scenario 2}
+        \label{fig9(b)}
+    \end{subfigure}
+    % Row 3
+    \begin{subfigure}[b]{0.9\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/Tying Rebar Test 3.png}
+        \caption{Scenario 3}
+        \label{fig9(c)}
+    \end{subfigure}
+    \caption{Skeleton representation of workers tying rebar over consecutive frames at 1-second intervals}
+    \label{fig9}
+\end{figure}
+
+\subsection{Activity Duration and Count}
+
+The developed system is also able to track the duration and count of normal and risky postures, as well as how often workers switch between them. Figure \ref{fig10} illustrates an example to track and visualize activity duration and bending count for a construction worker labeled as "Person 1." The worker’s posture is classified as "Bending" (red) and "Standing" (green) based on the alignment of key body landmarks such as the nose, shoulders, hips, and ankles. The bending duration is shown in red, with times of 5 seconds, 3 seconds, and 2 seconds recorded for three separate intervals. Similarly, the standing duration is shown in green, with times of 1 second and 4 seconds between bending intervals. The bending count is updated each time the worker transitions from standing to bending, as indicated by the arrows in the image. In this example, the bending count increases by 1 twice during the session, resulting in a total bending count of 2. 
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.7\textwidth}
+    \includegraphics[width=\textwidth]{figures/Activity Duration and Bending Count.png}
+\end{subfigure}
+\caption{Displaying Activity Duration and Bending Count}
+\label{fig10}
+\end{figure}
+
+
+\subsection{Comparison of Model and Manual Evaluation}
+We conducted a comparison of model generated and manually recorded activity data to evaluate the system's accuracy in detecting ergonomic risk factors. To establish a ground truth for comparison, human observers manually reviewed recorded videos of workers performing these scenarios. They identified postural changes and recorded their duration and count. By comparing the model's detections with these manually recorded values, we calculated the error rate. The error rate quantifies the percentage difference between the two methods. The error rate was determined using the following formula:
+
+
+\begin{equation}  
+E_{\mathrm{final}} = \frac{100}{3}
+\left(
+   \frac{\lvert M_{\mathrm{np}} - G_{\mathrm{np}} \rvert}{G_{\mathrm{np}}}
+ + \frac{\lvert M_{\mathrm{er}} - G_{\mathrm{er}} \rvert}{G_{\mathrm{er}}}
+ + \frac{\lvert M_{\mathrm{freq}} - G_{\mathrm{freq}} \rvert}{G_{\mathrm{freq}}}
+\right)
+\end{equation}
+
+\noindent where,\\
+$E_{\mathrm{final}}$  = Final average error percentage;\\
+$M_{\mathrm{np}},\, G_{\mathrm{np}}$  = Model and ground truth values for normal posture duration;\\
+$M_{\mathrm{er}},\, G_{\mathrm{er}}$ = Model and ground truth values for ergonomically risky duration;\\
+$M_{\mathrm{freq}},\, G_{\mathrm{freq}} $ = Model and ground truth values for count of risky activity.
+
+
+
+Table \ref{table1} shows a detailed comparison of manual and model evaluations for different construction related tasks. Each task is broken down into multiple test scenarios. The table reports three main metrics for each scenario: duration of normal posture in seconds, duration of ergonomically risky posture in seconds, and the count of risky activities. The final column presents the error rate, which represents the difference between the model's results and manual observations. Many scenarios show low error rates. This indicates that the model tracks posture durations and frequencies accurately. For instance, “Hand Screeding Scenario 3” and “Kneeling Creeper Scenario 2” both achieve a 0 percent error rate. In these tests, the model’s metrics match the manual measurements perfectly. Tasks like “Hand Screeding Scenario 1” also demonstrate a fairly low error rate of 2.45 percent. Some scenarios reveal moderate to higher discrepancies. “Tying Rebar Scenario 1” shows an error rate of 5.36 percent. This higher value suggests that the model may struggle with frequent or subtle changes in posture. Rapid transitions between normal and risky positions can create more counting errors. Minor variations in how workers perform each task may further complicate detection. Sensor calibration or environmental factors like lighting can also affect the model's accuracy. Activities like “Hand Screeding Scenario 2” and “Kneeling Creeper Scenario 3” display error rates of 5.13 percent and 6.06 percent, respectively. These rates highlight potential challenges in distinguishing borderline postures or counting movements that happen quickly. Consistent repetition or variations in a task can lead to partial misclassifications. As a result, the model's readings may differ from the manual ground truth. In contrast, “Laying Concrete Block Scenario 1” and “Tying Rebar Scenario 2” each show an error rate of 0 percent. These scenarios point to conditions where the model excels at identifying posture transitions. Fewer rapid movements or clearer distinctions between normal and risky postures can reduce miscalculations. Stable lighting or simpler task patterns may also support accurate posture detection. 
+
+
+
+% \begin{table}[H]
+% \centering
+% \small
+% \caption{Comparison of Model and Manual Evaluations}
+% \renewcommand{\arraystretch}{1}  % Adjust row height
+% \setlength{\tabcolsep}{6pt}       % Adjust column spacing
+% \begin{tabular}{lccc ccc c}
+% \toprule
+% \multirow{2}{*}{\textbf{Activity}} 
+% & \multicolumn{3}{c}{\textbf{Model Evaluation}} 
+% & \multicolumn{3}{c}{\textbf{Manual Evaluation}} 
+% & \multirow{2}{*}{\textbf{Error Rate}} \\
+% \cmidrule(lr){2-4}\cmidrule(lr){5-7}
+% & \textbf{\scriptsize Standing} & \textbf{\scriptsize Bending} & \textbf{\scriptsize Bending} 
+% & \textbf{\scriptsize Standing} & \textbf{\scriptsize Bending} & \textbf{\scriptsize Bending} 
+% &  \\
+% & \textbf{\scriptsize Duration} & \textbf{\scriptsize Duration} & \textbf{\scriptsize Count} 
+% & \textbf{\scriptsize Duration} & \textbf{\scriptsize Duration} & \textbf{\scriptsize Count} 
+% &  \\
+% \midrule
+% Hand Screeding Scenario 1 & 105 & 12 & 92 & 102 & 12 & 90 & 2.45 \\
+% Hand Screeding Scenario 2 & 35 & 22 & 107 & 35 & 21 & 100 & 5.13 \\
+% Hand Screeding Scenario 3 & 53 & 7 & 47 & 53 & 7 & 47 & 0.00 \\
+% Drywall Finishing Scenario 1 & 20 & 10 & 3 & 20 & 9 & 3 & 3.13 \\
+% Drywall Finishing Scenario 2 & 61 & 7 & 33 & 59 & 7 & 33 & 2.02 \\
+% Drywall Finishing Scenario 3 & 45 & 3 & 15 & 45 & 3 & 15 & 0.00 \\
+% Laying Concrete Block Scenario 1 & 31 & 0 & 0 & 31 & 0 & 0 & 0.00 \\
+% Laying Concrete Block Scenario 2 & 17 & 5 & 19 & 16 & 5 & 19 & 2.50 \\
+% Laying Concrete Block Scenario 3 & 60 & 13 & 78 & 55 & 13 & 78 & 4.79 \\
+% Kneeling Creeper Scenario 1 & 65 & 9 & 25 & 65 & 9 & 25 & 0.00 \\
+% Kneeling Creeper Scenario 2 & 0 & 5 & 0 & 0 & 5 & 0 & 0.00 \\
+% Kneeling Creeper Scenario 3 & 11 & 6 & 14 & 11 & 8 & 14 & 6.06 \\
+% Tying Rebar Scenario 1 & 15 & 12 & 32 & 14 & 12 & 30 & 5.36 \\
+% Tying Rebar Scenario 2 & 2 & 4 & 2 & 2 & 4 & 2 & 0.00 \\
+% Tying Rebar Scenario 3 & 36 & 9 & 31 & 35 & 9 & 31 & 1.33 \\
+% \bottomrule
+% \end{tabular}
+
+% \label{table1}
+% \end{table}
+
+
+
+\begin{table}[H]
+\centering
+\scriptsize
+\caption{Comparison of Model and Manual Evaluations}
+\setlength{\tabcolsep}{4pt} % Compact column spacing
+\renewcommand{\arraystretch}{0.95} % Compact row height
+\begin{tabular}{lccc ccc c}
+\toprule
+\multirow{2}{*}{\textbf{Activity}} 
+& \multicolumn{3}{c}{\textbf{Model}} 
+& \multicolumn{3}{c}{\textbf{Manual}} 
+& \multirow{2}{*}{\textbf{Error}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+& \textbf{\scriptsize Stand Dur.} & \textbf{\scriptsize Bend Dur.} & \textbf{\scriptsize Bend Cnt.} 
+& \textbf{\scriptsize Stand Dur.} & \textbf{\scriptsize Bend Dur.} & \textbf{\scriptsize Bend Cnt.} 
+& \\
+\midrule
+Hand Screeding 1 & 105 & 12 & 92 & 102 & 12 & 90 & 2.45 \\
+Hand Screeding 2 & 35 & 22 & 107 & 35 & 21 & 100 & 5.13 \\
+Hand Screeding 3 & 53 & 7 & 47 & 53 & 7 & 47 & 0.00 \\
+Drywall Finish 1 & 20 & 10 & 3 & 20 & 9 & 3 & 3.13 \\
+Drywall Finish 2 & 61 & 7 & 33 & 59 & 7 & 33 & 2.02 \\
+Drywall Finish 3 & 45 & 3 & 15 & 45 & 3 & 15 & 0.00 \\
+Concrete Block 1 & 31 & 0 & 0 & 31 & 0 & 0 & 0.00 \\
+Concrete Block 2 & 17 & 5 & 19 & 16 & 5 & 19 & 2.50 \\
+Concrete Block 3 & 60 & 13 & 78 & 55 & 13 & 78 & 4.79 \\
+Kneeling Creeper 1 & 65 & 9 & 25 & 65 & 9 & 25 & 0.00 \\
+Kneeling Creeper 2 & 0 & 5 & 0 & 0 & 5 & 0 & 0.00 \\
+Kneeling Creeper 3 & 11 & 6 & 14 & 11 & 8 & 14 & 6.06 \\
+Tying Rebar 1 & 15 & 12 & 32 & 14 & 12 & 30 & 5.36 \\
+Tying Rebar 2 & 2 & 4 & 2 & 2 & 4 & 2 & 0.00 \\
+Tying Rebar 3 & 36 & 9 & 31 & 35 & 9 & 31 & 1.33 \\
+\bottomrule
+\end{tabular}
+\label{table1}
+\end{table}
+
+
+
+
+\subsection{Recommendations based on VLM-RAG}
+
+Figure~\ref{fig:molmo-result} shows the image of a worker tying rebar at a construction site, along with the prompt and the response generated by Molmo, a vision-language model. The description emphasizes that the worker is adjusting, connecting, and securing the thin metal rods (tying rebar). This detailed account aids the system in understanding the work being performed and serves as an essential input for further ergonomic risk analysis and mitigation strategies. The response from RAG explains that workers can face risks such as poor posture, repeated bending, and awkward movements, all of which can lead to injuries. It offers advice on reducing these risks, such as using better tools and alternating tasks regularly. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/Molmo Results.pdf}
+    \caption{Response generated by Molmo}
+    \label{fig:molmo-result}
+\end{figure}
+
+% The RAG part system leverages a collaborative group of specialized agents to effectively answer user questions with accurate references. Initially, the \textit{UserProxyAgent} captures the user's input, initiating the interaction. Subsequently, the \textit{RetrieverAgent} queries a dedicated ChromaDB vector database populated with text derived from safety guidelines documented in \citet{albers2007simple}. This database is structured using embeddings—numerical representations of textual chunks that facilitate rapid and precise semantic comparisons. Once relevant embeddings are identified, the \textit{ContextAgent} compiles and delivers this pertinent information to the \textit{GeneratorAgent}. Utilizing a Large Language Model (LLM) configured at a low temperature setting to ensure consistent and reliable outputs rather than highly creative interpretations, the \textit{GeneratorAgent} synthesizes the retrieved context into a coherent, easy-to-understand response, explicitly citing \citet{albers2007simple}. Finally, the generated response is displayed to the user via a streamlined, user-friendly web interface developed with Streamlit, featuring an intuitive input box for queries and clearly formatted answers.
+
+
+
+% The system leverages several helpful libraries to ensure efficient and coordinated functionality. Autogen orchestrates various agents, ensuring each performs its task in the correct sequence. LangChain handles document ingestion, reading and splitting them into manageable segments for analysis. Subsequently, a Hugging Face model generates embeddings, numerical representations of textual data, that are indexed and retrieved efficiently by ChromaDB. With embeddings stored in ChromaDB, the RetrieverAgent can swiftly pinpoint and retrieve document segments most pertinent to user queries. Streamlit facilitates the creation of an intuitive user interface, enabling seamless interaction with the system. Additionally, libraries such as NumPy, scikit-learn, and Matplotlib assist in robust data handling, analysis, and visualization.
+
+
+
+% The RAG model starts by using a prompt to gather information, then it retrieves embeddings from that prompt and checks them against the embeddings from \citet{albers2007simple}. This process helps ensure that the image description and other data match the trusted sources.
+
+ 
+
+% The simple sentences and detailed explanations provided by the RAG model make it easier for workers and managers to understand the potential hazards and take effective measures. Overall, this approach supports decision-makers in planning safety measures and improving the work environment.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{figures/RAG-LLM Recommendations.png}
+%     \caption{Recommendations based on RAG-LLM}
+%     \label{fig:rag-llm-recommendations}
+% \end{figure}
+
+
+
+
+\section{Conclusion}
+
+The proposed real-time ergonomic risk detection system is able to effectively identifies and assesses construction workers' postures. The results demonstrate the system's capability to track bending and standing postures, measure activity duration, and count transitions with a high degree of accuracy. The landmark smoothing techniques is able to improve stability in detecting workers' movements and reduce fluctuations due to rapid postural changes. By providing real-time feedback, the system enables safety managers to proactively identify and mitigate ergonomic risks. Practical applications include the development of automated alerts for workers engaging in prolonged bending, implementation of posture training programs, and integration with wearable sensors to enhance risk assessment. The validation against manual evaluations shows that the system’s error rate is generally low, which confirms its reliability in identifying ergonomic risks. A notable advantage of the proposed system is its cost-effectiveness and accessibility. Unlike traditional ergonomic assessment methods that often require expensive specialized equipment, this system can be implemented using standard hardware, a regular commercial grade camera and a computer with moderate processing capabilities. 
+
+% Additionally, most prior studies emphasize posture classification without continuously measuring the duration of bending postures, a key factor in musculoskeletal risk assessment. 
+
+% By incorporating real-time feedback and continuous monitoring, the proposed system overcomes these limitations and provides a more comprehensive assessment of ergonomic risks in construction settings.
+
+% The observed results can be attributed to the efficiency of YOLOv8 in detecting human poses and the effectiveness of landmark smoothing in refining posture analysis. The high accuracy in detecting bending activities is likely due to the system's ability to track key joint landmarks. This allows for precise calculation of trunk angles. The slight discrepancies between model predictions and manual evaluations can be explained by occlusion effects, variations in camera angles, and challenges in distinguishing borderline postures. Additionally, environmental factors, such as poor lighting or dynamic worker movements, may have influenced detection accuracy.
+
+% The findings have several implications for improving workplace safety in the construction industry. 
+
+
+% This approach aligns with industry trends toward using AI-driven solutions to enhance worker safety and productivity.
+
+Despite its effectiveness, the system has some limitations. The accuracy of pose detection may decrease in cases where workers' movements are partially occluded or when multiple workers overlap in the camera’s field of view. Moreover, while the model can track posture transitions, it does not currently factor in external loads or other biomechanical stressors that contribute to ergonomic risks. Future improvements could involve refining the detection algorithm to handle more complex postures and integrating additional risk factors, such as external forces exerted during lifting and carrying tasks. Future research should focus on enhancing the system’s real-time feedback mechanisms by incorporating predictive analytics to identify workers at risk before injuries occur. Additionally, integrating multimodal data, such as wearable sensor inputs and physiological indicators, could improve the system’s accuracy in assessing ergonomic strain. 
+
+
+
+% Furthermore, the utilization of open-source software components, including the YOLOv8 model, significantly reduces implementation costs. This economic feasibility makes the technology particularly attractive for small and medium-sized construction contractors who may have limited resources for safety monitoring systems. The low cost barrier to entry could encourage wider adoption of automated ergonomic risk assessment across the construction industry, potentially improving worker safety outcomes across projects of all sizes.
+
+
+
+
+% The proposed real-time ergonomic hazard detection system aims to reduce musculoskeletal risks among construction workers by using the latest pose estimation method. This study demonstrates that real-time posture tracking and activity duration measurement can effectively identify hazardous postures and provide immediate feedback to workers and supervisors. The evaluation results indicate that the system is able to successfully detects ergonomically risky activities with high accuracy. 
+
+% This research contributes to the broader field of construction safety by offering a scalable and non-intrusive ergonomic assessments. By integrating real-time feedback mechanisms, the system has the potential to enhance workplace safety and worker well-being, which will ultimately improve productivity and reduce injury-related downtime. The findings emphasize the importance of continuous posture monitoring in addressing ergonomic risks, particularly in dynamic construction settings.
+
+% The study has practical implications for construction site management, as it provides an automated tool for real-time ergonomic assessment. The system, which has the ability to track postures and alert supervisors to risky behaviors, enables proactive interventions. This helps in reducing the likelihood of work-related musculoskeletal disorders. Theoretically, this research advances the application of computer vision in occupational safety by demonstrating how pose estimation models can be adapted for ergonomic risk detection in complex work environments.
+
+% Future research should focus on deploying the system in live construction environments, where it can be evaluated for its performance under real-world conditions. Expanding the system’s capabilities, so that it can track additional ergonomic risk factors, such as repetitive motion and force exertion, could further enhance its effectiveness. The integration of wearable sensors, which will allow physiological monitoring, and the development of predictive models based on historical data will provide deeper insights into worker safety. Collaboration with industry stakeholders will be essential, as it will help refine the system for practical implementation and encourage widespread adoption.
+
+
+
+\bibliographystyle{unsrtnat}
+\bibliography{ref}
+
+\end{document}
